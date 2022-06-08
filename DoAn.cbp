@@ -15,6 +15,8 @@
 					<Add option="-g" />
 					<Add directory="include/model" />
 					<Add directory="include" />
+					<Add directory="include/dao" />
+					<Add directory="include/util" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -26,6 +28,8 @@
 					<Add option="-O2" />
 					<Add directory="include/model" />
 					<Add directory="include" />
+					<Add directory="include/dao" />
+					<Add directory="include/util" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -36,12 +40,30 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="include/Date.h" />
+		<Unit filename="include/dao/SubjectDao.h" />
+		<Unit filename="include/model/Class.h" />
+		<Unit filename="include/model/Date.h" />
+		<Unit filename="include/model/Mark.h" />
 		<Unit filename="include/model/Month.h" />
+		<Unit filename="include/model/Person.h" />
+		<Unit filename="include/model/Student.h" />
+		<Unit filename="include/model/Subject.h" />
+		<Unit filename="include/model/Teacher.h" />
+		<Unit filename="include/model/TeachingAssignment.h" />
 		<Unit filename="include/model/User.h" />
+		<Unit filename="include/util/Logger.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="model/User.cpp" />
-		<Unit filename="src/Date.cpp" />
+		<Unit filename="src/dao/SubjectDao.cpp" />
+		<Unit filename="src/model/Class.cpp" />
+		<Unit filename="src/model/Date.cpp" />
+		<Unit filename="src/model/Mark.cpp" />
+		<Unit filename="src/model/Person.cpp" />
+		<Unit filename="src/model/Student.cpp" />
+		<Unit filename="src/model/Subject.cpp" />
+		<Unit filename="src/model/Teacher.cpp" />
+		<Unit filename="src/model/TeachingAssignment.cpp" />
+		<Unit filename="src/model/User.cpp" />
+		<Unit filename="src/util/Logger.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

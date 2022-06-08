@@ -9,6 +9,7 @@ class Mark
     public:
         Mark();
         Mark(Student, Class, Subject, float);
+        Mark(long, Student, Class, Subject, float);
         virtual ~Mark();
 
         Student Getstudent() { return student; }
@@ -19,10 +20,13 @@ class Mark
         void Setsubject(Subject val) { subject = val; }
         float Getvalue() { return value; }
         void Setvalue(float val) { value = val; }
+        long Getid() { return id; }
+        void Setid(long val) { id = val; }
 
     protected:
 
     private:
+        long id;
         Student student;
         Class clazz;
         Subject subject;
