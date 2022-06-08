@@ -13,6 +13,8 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include/model" />
+					<Add directory="include" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -22,6 +24,8 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include/model" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -32,7 +36,12 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/Date.h" />
+		<Unit filename="include/model/Month.h" />
+		<Unit filename="include/model/User.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="model/User.cpp" />
+		<Unit filename="src/Date.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
