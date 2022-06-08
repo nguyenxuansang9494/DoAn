@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1654661158 source:c:\users\sangxuannguyen\naughty things\doan\main.cpp
+	<iostream>
+	"User.h"
+
+1654661367 c:\users\sangxuannguyen\naughty things\doan\include\model\user.h
+	<string>
+
