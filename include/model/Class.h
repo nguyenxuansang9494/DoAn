@@ -1,21 +1,20 @@
-#ifndef SUBJECT_H
-#define SUBJECT_H
+#ifndef CLASS_H
+#define CLASS_H
 #include <string>
 using namespace std;
 
-
-class Subject
+class Class
 {
     public:
-        Subject();
-        Subject(long, string, int);
-        Subject(string, int);
-        virtual ~Subject();
+        Class();
+        Class(long, int, string);
+        Class(int, string);
+        virtual ~Class();
 
+        int Getlevel() { return level; }
+        void Setlevel(int val) { level = val; }
         string Getname() { return name; }
         void Setname(string val) { name = val; }
-        int Getgrade() { return grade; }
-        void Setgrade(int val) { grade = val; }
         long Getid() { return id; }
         void Setid(long val) { id = val; }
 
@@ -23,8 +22,9 @@ class Subject
 
     private:
         long id;
+        int level;
         string name;
-        int grade;
+        int year;
 };
 
-#endif // SUBJECT_H
+#endif // CLASS_H

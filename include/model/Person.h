@@ -8,6 +8,7 @@ class Person
 {
     public:
         Person();
+        Person(long, string, string, Date, string, string);
         Person(string, string, Date, string, string);
         virtual ~Person();
 
@@ -21,10 +22,13 @@ class Person
         void Setemail(string val) { email = val; }
         string Getphone_number() { return phone_number; }
         void Setphone_number(string val) { phone_number = val; }
+        long Getid() { return id; }
+        void Setid(long val) { id = val; }
 
     protected:
 
     private:
+        long id;
         string first_name;
         string last_name;
         Date dob;
