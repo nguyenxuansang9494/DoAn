@@ -22,3 +22,24 @@ Logger* Logger::Getinstance() {
         instance = new Logger();
     return instance;
 }
+
+void Logger::info(char *ch)
+{
+    time_t _tm =time(NULL);
+    struct tm * curtime = localtime ( &_tm );
+    logfile << asctime(curtime) << " - " << "INFO : " << ch << endl;
+}
+
+void Logger::error(char *ch)
+{
+    time_t _tm =time(NULL);
+    struct tm * curtime = localtime ( &_tm );
+    logfile << asctime(curtime) << " - " << "ERROR : " << ch << endl;
+}
+
+void Logger::info(char *ch)
+{
+    time_t _tm =time(NULL);
+    struct tm * curtime = localtime ( &_tm );
+    logfile << asctime(curtime) << " - " << "WARN : " << ch << endl;
+}

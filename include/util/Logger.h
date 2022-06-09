@@ -12,7 +12,7 @@ class Logger
 {
     public:
         virtual ~Logger();
-        Logger* Getinstance();
+        static Logger* Getinstance();
         Logger(Logger &other) = delete;
         void operator=(const Logger &other) = delete;
         void info(char *ch);
