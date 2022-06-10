@@ -18,19 +18,6 @@ SubjectDao *SubjectDao::Getinstance()
     return instance;
 }
 
-void SubjectDao::InitDBConn(sqlite3 *&db)
-{
-    string dbfile = getenv("HOME");
-    dbfile.append("/.skulman/db/skulman.db");
-    int rc = sqlite3_open(dbfile.c_str(), &db);
-    if (rc != 0)
-    {
-        LOGGER->error("Database connection failed.");
-        throw DatabaseConnectionFailedException();
-    }
-    LOGGER->info("Connect to db success.");
-}
-
 void SubjectDao::CreateNewSubject(Subject subject)
 {
     sqlite3 *db = nullptr;

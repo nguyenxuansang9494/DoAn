@@ -13,17 +13,17 @@ class Teacher : public Person
 {
     public:
         Teacher();
-        Teacher(string first_name, string last_name, Date dob, string email, string phone_number, vector<Subject> subject);
-        Teacher(long id, string first_name, string last_name, Date dob, string email, string phone_number, vector<Subject> subject);
+        Teacher(string first_name, string last_name, Date dob, string email, string phone_number, Subject subject);
+        Teacher(long id, string first_name, string last_name, Date dob, string email, string phone_number, Subject subject);
         virtual ~Teacher();
 
-        vector<Subject> Getsubject() { return subject; }
-        void Setsubject(vector<Subject> val) { subject = val; }
+        Subject Getsubject() { return subject; }
+        void Setsubject(Subject val) { subject = val; }
 
     protected:
 
     private:
-        vector<Subject> subject;
+        Subject subject;
 };
 
 #endif // TEACHER_H
