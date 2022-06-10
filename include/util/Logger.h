@@ -15,9 +15,9 @@ class Logger
         static Logger* Getinstance();
         Logger(Logger &other) = delete;
         void operator=(const Logger &other) = delete;
-        void info(char *ch);
-        void error(char *ch);
-        void warn(char *ch);
+        void info(string ch);
+        void error(string ch);
+        void warn(string ch);
     protected:
 
     private:
