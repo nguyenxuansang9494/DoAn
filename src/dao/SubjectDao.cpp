@@ -1,6 +1,6 @@
 #include "SubjectDao.h"
 
-SubjectDao* SubjectDao::instance = nullptr;
+SubjectDao *SubjectDao::instance = nullptr;
 Logger *LOGGER = Logger::Getinstance();
 
 SubjectDao::SubjectDao()
@@ -11,19 +11,45 @@ SubjectDao::~SubjectDao()
 {
 }
 
-SubjectDao* SubjectDao::Getinstance() {
+SubjectDao *SubjectDao::Getinstance()
+{
     if (instance == nullptr)
         instance = new SubjectDao();
     return instance;
 }
 
-sqlite3* SubjectDao::initDBConn() {
-    sqlite3 *db;
-    int rc = sqlite3_open("skulman.db", &db);
-    if ( rc != 0 ) {
-        LOGGER->error("Can not connect to Database.");
-        throw runtime_error("can not connect to database.");
+void SubjectDao::InitDBConn(sqlite3 *&db)
+{
+    string dbfile = getenv("HOME");
+    dbfile.append("/.skulman/db/skulman.db");
+    int rc = sqlite3_open(dbfile.c_str(), &db);
+    if (rc != 0)
+    {
+        LOGGER->error("Database connection failed.");
+        throw DatabaseConnectionFailedException();
     }
     LOGGER->info("Connect to db success.");
-    return db;
 }
+
+void SubjectDao::CreateNewSubject(Subject subject)
+{
+    sqlite3 *db = nullptr;
+    sqlite3_stmt *stmt = nullptr;
+    try
+    {
+        InitDBConn(db);
+    }
+    catch (const std::exception &e)
+    {
+        LOGGER->error("Can not create new subject due to database connection failure.");
+    }
+    int rc = sqlite3_prepare_v2(db, "INSERT INTO subject (name, grade) VALUES(?, ?) ", -1, &stmt, 0);
+    rc = sqlite3_exec(db, "BEGIN TRANSACTION", nullptr, nullptr, nullptr);
+    sqlite3_bind_text(stmt, 1, subject.Getname().c_str(), -1, nullptr);
+    sqlite3_bind_int(stmt, 2, subject.Getgrade());
+    sqlite3_step(stmt);
+    rc = sqlite3_exec(db, "END TRANSACTION", nullptr, nullptr, nullptr);
+    rc = sqlite3_finalize(stmt);
+    sqlite3_close(db);
+}
+
