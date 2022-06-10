@@ -1,10 +1,12 @@
 #include <iostream>
-#include "User.h"
+#include <Logger.h>
 using namespace std;
 
 int main()
 {
-    User u("hello", "password");
+    Logger *LOGGER = Logger::Getinstance();
+    LOGGER->info("Application started."); 
     cout << "Hello world!" << endl;
+    LOGGER->info("Application is closing.");
     return 0;
 }

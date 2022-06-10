@@ -3,13 +3,15 @@ Logger* Logger::instance = nullptr;
 
 Logger::Logger()
 {
+    char timestr[20];
     time_t _tm =time(NULL);
     struct tm * curtime = localtime ( &_tm );
     string env_home = getenv("HOME");
-    string logfolder = env_home.append("./skulman");
-    string logfile = logfolder.append("/log").append(asctime(curtime)).append(".log");
+    string logfolder = env_home.append("/.skulman");
     mkdir(logfolder.c_str(), 0775);
-    this->logfile.open(logfile.c_str());
+    strftime(timestr, 50, "%m-%d-%Y_%H:%M:%S", curtime);
+    logfolder.append("/log-").append(timestr).append(".log");
+    this->logfile.open(logfolder.c_str());
 }
 
 Logger::~Logger()
@@ -25,21 +27,27 @@ Logger* Logger::Getinstance() {
 
 void Logger::info(string ch)
 {
+    char timestr[20];
     time_t _tm =time(NULL);
     struct tm * curtime = localtime ( &_tm );
-    logfile << asctime(curtime) << " - " << "INFO : " << ch << endl;
+    strftime(timestr, 50, "%m-%d-%Y %H:%M:%S", curtime);
+    logfile << timestr << " - " << "INFO : " << ch << endl;
 }
 
 void Logger::error(string ch)
 {
+    char timestr[20];
     time_t _tm =time(NULL);
     struct tm * curtime = localtime ( &_tm );
-    logfile << asctime(curtime) << " - " << "ERROR : " << ch << endl;
+    strftime(timestr, 50, "%m-%d-%Y %H:%M:%S", curtime);
+    logfile << timestr << " - " << "ERROR : " << ch << endl;
 }
 
 void Logger::warn(string ch)
 {
+    char timestr[20];
     time_t _tm =time(NULL);
     struct tm * curtime = localtime ( &_tm );
-    logfile << asctime(curtime) << " - " << "WARN : " << ch << endl;
+    strftime(timestr, 50, "%m-%d-%Y %H:%M:%S", curtime);
+    logfile << timestr << " - " << "WARN : " << ch << endl;
 }
