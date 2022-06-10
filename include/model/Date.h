@@ -1,6 +1,8 @@
 #ifndef DATE_H
 #define DATE_H
 #include "Month.h"
+#include <string>
+using namespace std;
 
 class Date
 {
@@ -15,6 +17,7 @@ class Date
         void Setyear(int val) { year = val; }
         Month Getmonth() { return month; }
         void Setmonth(Month val) { month = val; }
+        string tostring();
 
     protected:
 

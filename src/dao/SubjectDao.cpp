@@ -26,7 +26,7 @@ void SubjectDao::CreateNewSubject(Subject subject)
     {
         InitDBConn(db);
     }
-    catch (const std::exception &e)
+    catch (const DatabaseConnectionFailedException &e)
     {
         LOGGER->error("Can not create new subject due to database connection failure.");
     }
