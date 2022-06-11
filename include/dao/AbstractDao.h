@@ -5,9 +5,11 @@ template <class T>
 class AbstractDao
 {
 private:
-public:
+protected:
     AbstractDao();
+public:
     virtual ~AbstractDao();
+    virtual static AbstractDao *Getinstance();
     virtual void CreateOne(T t) = 0;
     virtual ArrayList<T> GetAll() = 0;
     virtual T *GetById(int id) = 0;

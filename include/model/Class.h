@@ -8,10 +8,12 @@ class Class
 {
     public:
         Class();
-        Class(long, int, string, Teacher);
-        Class(int, string, Teacher);
+        Class(long, int, string, int, Teacher);
+        Class(int, string, int, Teacher);
         virtual ~Class();
 
+        int Getyear() { return year; }
+        void Setyear(int val) { year = val; }
         int Getlevel() { return level; }
         void Setlevel(int val) { level = val; }
         string Getname() { return name; }

@@ -33,7 +33,7 @@ TeacherDao *TeacherDao::Getinstance()
 void TeacherDao::CreateOne(Teacher teacher)
 {
     sqlite3_stmt *stmt = nullptr;
-    int rc = sqlite3_prepare_v2(db, "INSERT INTO teacher (first_name, last_name, dob, email, phone_number, subject_id) VALUES(?, ?, ?, ?, ?, ?) ", -1, &stmt, 0);
+    int rc = sqlite3_prepare_v2(db, "INSERT INTO teacher (first_name, last_name, dob, email, phone_number, subject_id) VALUES(?, ?, ?, ?, ?, ?) ", -1, &stmt, nullptr);
     rc = sqlite3_exec(db, "BEGIN TRANSACTION", nullptr, nullptr, nullptr);
     string first_name = teacher.Getfirst_name();
     sqlite3_bind_text(stmt, 1, first_name.c_str(), -1, nullptr);
@@ -56,7 +56,7 @@ ArrayList<Teacher> TeacherDao::GetAll()
 {
     sqlite3_stmt *stmt = nullptr;
     ArrayList<Teacher> result = ArrayList<Teacher>();
-    int rc = sqlite3_prepare_v2(db, "SELECT * FROM teacher", -1, &stmt, 0);
+    int rc = sqlite3_prepare_v2(db, "SELECT * FROM teacher", -1, &stmt, nullptr);
     rc = sqlite3_exec(db, "BEGIN TRANSACTION", nullptr, nullptr, nullptr);
     for (int i = 0; sqlite3_step(stmt) == SQLITE_ROW; i++)
     {
@@ -80,7 +80,7 @@ Teacher *TeacherDao::GetById(int id)
 {
     sqlite3_stmt *stmt = nullptr;
     Teacher *result = nullptr;
-    int rc = sqlite3_prepare_v2(db, "SELECT * FROM teacher WHERE id = ?", -1, &stmt, 0);
+    int rc = sqlite3_prepare_v2(db, "SELECT * FROM teacher WHERE id = ?", -1, &stmt, nullptr);
     sqlite3_bind_int(stmt, 1, id);
     rc = sqlite3_exec(db, "BEGIN TRANSACTION", nullptr, nullptr, nullptr);
     if (sqlite3_step(stmt) == SQLITE_ROW)
@@ -103,7 +103,7 @@ Teacher *TeacherDao::GetById(int id)
 void TeacherDao::RemoveById(int id)
 {
     sqlite3_stmt *stmt = nullptr;
-    int rc = sqlite3_prepare_v2(db, "DELETE FROM teacher WHERE id = ?", -1, &stmt, 0);
+    int rc = sqlite3_prepare_v2(db, "DELETE FROM teacher WHERE id = ?", -1, &stmt, nullptr);
     rc = sqlite3_exec(db, "BEGIN TRANSACTION", nullptr, nullptr, nullptr);
     sqlite3_bind_int(stmt, 1, id);
     sqlite3_step(stmt);
@@ -115,7 +115,7 @@ void TeacherDao::RemoveById(int id)
 void TeacherDao::UpdateById(int id, Teacher teacher)
 {
     sqlite3_stmt *stmt = nullptr;
-    int rc = sqlite3_prepare_v2(db, "UPDATE teacher SET first_name = ?, last_name = ?, dob = ?, email = ?, phone_number = ?, subject_id = ? WHERE id = ?", -1, &stmt, 0);
+    int rc = sqlite3_prepare_v2(db, "UPDATE teacher SET first_name = ?, last_name = ?, dob = ?, email = ?, phone_number = ?, subject_id = ? WHERE id = ?", -1, &stmt, nullptr);
     rc = sqlite3_exec(db, "BEGIN TRANSACTION", nullptr, nullptr, nullptr);
     string first_name = teacher.Getfirst_name();
     sqlite3_bind_text(stmt, 1, first_name.c_str(), -1, nullptr);
