@@ -26,14 +26,14 @@ class Person
         void Setid(long val) { id = val; }
 
     protected:
-
-    private:
         long id;
         string first_name;
         string last_name;
         Date dob;
         string email;
         string phone_number;
+        
+    private:
 };
 
 #endif // PERSON_H

@@ -5,7 +5,7 @@
 #include <Subject.h>
 #include <string>
 #include <DatabaseUtil.h>
-
+#include <ArrayList.h>
 using namespace std;
 
 class SubjectDao
@@ -14,6 +14,10 @@ class SubjectDao
         virtual ~SubjectDao();
         static SubjectDao *Getinstance();
         void CreateNewSubject(Subject subject);
+        ArrayList<Subject> GetAllSubjects();
+        Subject *GetById(int id);
+        void RemoveById(int id);
+        void Update(int id, Subject subject);
     protected:
 
     private:

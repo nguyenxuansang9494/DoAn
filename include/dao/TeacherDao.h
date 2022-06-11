@@ -1,5 +1,5 @@
-#ifndef SUBJECTDAO_H
-#define SUBJECTDAO_H
+#ifndef TEACHERDAO_H
+#define TEACHERDAO_H
 #include <sqlite3.h>
 #include <Logger.h>
 #include <Teacher.h>
@@ -21,4 +21,4 @@ class TeacherDao
         static TeacherDao *instance;
 };
 
-#endif // SUBJECTDAO_H
+#endif // TEACHERDAO_H
