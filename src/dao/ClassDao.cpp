@@ -16,7 +16,7 @@ ClassDao::ClassDao()
     }
     catch (const DatabaseConnectionFailedException &e)
     {
-        ClassDaoLogger::LOGGER->error("Database connection failure - class SubjectDao");
+        ClassDaoLogger::LOGGER->error("Database connection failure - class ClassDao");
     }
 }
 
