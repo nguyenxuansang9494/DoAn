@@ -6,23 +6,25 @@
 #include <string>
 #include <DatabaseUtil.h>
 #include <ArrayList.h>
+#include <AbstractDao.h>
 using namespace std;
 
-class SubjectDao
+class SubjectDao: public AbstractDao<Subject> 
 {
     public:
         virtual ~SubjectDao();
         static SubjectDao *Getinstance();
-        void CreateNewSubject(Subject subject);
-        ArrayList<Subject> GetAllSubjects();
+        void CreateOne(Subject subject);
+        ArrayList<Subject> GetAll();
         Subject *GetById(int id);
         void RemoveById(int id);
-        void Update(int id, Subject subject);
+        void UpdateById(int id, Subject subject);
     protected:
 
     private:
         SubjectDao();
         static SubjectDao *instance;
+        sqlite3 *db;
 };
 
 #endif // SUBJECTDAO_H

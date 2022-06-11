@@ -2,6 +2,8 @@
 #define DATE_H
 #include "Month.h"
 #include <string>
+#include <StringUtil.h>
+#include <stdexcept>
 using namespace std;
 
 class Date
@@ -9,6 +11,7 @@ class Date
     public:
         Date();
         Date(int day, Month month, int year);
+        Date(string);
         virtual ~Date();
 
         int Getdate() { return date; }

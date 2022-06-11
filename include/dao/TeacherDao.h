@@ -5,20 +5,28 @@
 #include <Teacher.h>
 #include <string>
 #include <DatabaseUtil.h>
+#include <ArrayList.h>
+#include <SubjectDao.h>
 
 using namespace std;
 
-class TeacherDao
+class TeacherDao: public AbstractDao<Teacher>
 {
     public:
         virtual ~TeacherDao();
         static TeacherDao *Getinstance();
-        void CreateNewTeacher(Teacher teacher);
+        void CreateOne(Teacher teacher);
+        ArrayList<Teacher> GetAll();
+        Teacher *GetById(int id);
+        void RemoveById(int id);
+        void UpdateById(int id, Teacher teacher);
     protected:
 
     private:
         TeacherDao();
         static TeacherDao *instance;
+        SubjectDao *subjectDao;
+        sqlite3 *db;
 };
 
 #endif // TEACHERDAO_H

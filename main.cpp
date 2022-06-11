@@ -13,8 +13,9 @@ int main()
     SubjectDao *subject_dao = SubjectDao::Getinstance();
     TeacherDao *teacher_dao = TeacherDao::Getinstance();
     LOGGER->info("Application started."); 
-    cout << "Hello world!" << endl;
-    subject_dao->RemoveById(4);
+    Teacher *teacher = teacher_dao->GetById(3);
+    teacher->Setlast_name("Wulfric Dumbledore");
+    teacher_dao->UpdateById(3, *teacher);
     LOGGER->info("Application is closing.");
     return 0;
 }

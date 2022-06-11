@@ -10,7 +10,7 @@
 
 namespace std
 {
-void InitDBConn(sqlite3*&);    
+sqlite3 *InitDBConn();    
 } 
 
 
