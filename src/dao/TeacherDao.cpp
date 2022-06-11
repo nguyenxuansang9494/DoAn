@@ -49,7 +49,6 @@ void TeacherDao::CreateOne(Teacher teacher)
     sqlite3_step(stmt);
     rc = sqlite3_exec(db, "END TRANSACTION", nullptr, nullptr, nullptr);
     rc = sqlite3_finalize(stmt);
-    sqlite3_close(db);
 }
 
 ArrayList<Teacher> TeacherDao::GetAll()
@@ -72,7 +71,6 @@ ArrayList<Teacher> TeacherDao::GetAll()
     }
     rc = sqlite3_exec(db, "END TRANSACTION", nullptr, nullptr, nullptr);
     rc = sqlite3_finalize(stmt);
-    sqlite3_close(db);
     return result;
 }
 
@@ -96,7 +94,6 @@ Teacher *TeacherDao::GetById(int id)
     }
     rc = sqlite3_exec(db, "END TRANSACTION", nullptr, nullptr, nullptr);
     rc = sqlite3_finalize(stmt);
-    sqlite3_close(db);
     return result;
 }
 
@@ -109,7 +106,6 @@ void TeacherDao::RemoveById(int id)
     sqlite3_step(stmt);
     rc = sqlite3_exec(db, "END TRANSACTION", nullptr, nullptr, nullptr);
     rc = sqlite3_finalize(stmt);
-    sqlite3_close(db);
 }
 
 void TeacherDao::UpdateById(int id, Teacher teacher)
@@ -132,5 +128,4 @@ void TeacherDao::UpdateById(int id, Teacher teacher)
     sqlite3_step(stmt);
     rc = sqlite3_exec(db, "END TRANSACTION", nullptr, nullptr, nullptr);
     rc = sqlite3_finalize(stmt);
-    sqlite3_close(db);
 }
