@@ -7,14 +7,23 @@ Student::Student()
 
 Student::Student(string first_name, string last_name, Date dob, string email, string phone_number, Class clazz)
 {
-    Person(first_name, last_name, dob, email, phone_number);
+    this->first_name = first_name;
+    this->last_name = last_name;
+    this->dob = dob;
+    this->email = email;
+    this->phone_number = phone_number;
     this->student_class = clazz;
 }
 
 
 Student::Student(long id, string first_name, string last_name, Date dob, string email, string phone_number, Class clazz)
 {
-    Person(id, first_name, last_name, dob, email, phone_number);
+    this->id = id;
+    this->first_name = first_name;
+    this->last_name = last_name;
+    this->dob = dob;
+    this->email = email;
+    this->phone_number = phone_number;
     this->student_class = clazz;
 }
 

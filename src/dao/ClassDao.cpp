@@ -70,7 +70,7 @@ Class *ClassDao::GetById(int id)
     rc = sqlite3_exec(db, "BEGIN TRANSACTION", nullptr, nullptr, nullptr);
     sqlite3_bind_int(stmt, 1, id);
     if (sqlite3_step(stmt) == SQLITE_ROW)
-        clazz = new Class(sqlite3_column_int(stmt, 0), string(reinterpret_cast<const char *>(sqlite3_column_text(stmt, 1))), sqlite3_column_int(stmt, 2), *(teacher_dao->GetById(sqlite3_column_int(stmt, 3))));
+        clazz = new Class(sqlite3_column_int(stmt, 0), sqlite3_column_int(stmt, 1), string(reinterpret_cast<const char *>(sqlite3_column_text(stmt, 2))), sqlite3_column_int(stmt, 3), *(teacher_dao->GetById(sqlite3_column_int(stmt, 4))));
     rc = sqlite3_exec(db, "END TRANSACTION", nullptr, nullptr, nullptr);
     rc = sqlite3_finalize(stmt);
     return clazz;
@@ -102,3 +102,4 @@ void ClassDao::UpdateById(int id, Class clazz)
     rc = sqlite3_exec(db, "END TRANSACTION", nullptr, nullptr, nullptr);
     rc = sqlite3_finalize(stmt);
 }
+
