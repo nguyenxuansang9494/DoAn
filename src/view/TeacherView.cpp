@@ -113,7 +113,7 @@ void TeacherView::CreateTeacher()
         cout << "Nhap id mon hoc : ";
         cin >> subject_id;
         TEACHER_DAO->CreateOne(Teacher(first_name, last_name, Date(dob), email, sdt, Subject(subject_id, "x", 0)));
-        cout << "Ban co muon tao them mon hoc khong(nhap 0 de quay ve menu truoc): ";
+        cout << "Ban co muon tao them giao vien khong(nhap 0 de quay ve menu truoc): ";
         cin >> choice;
         cin.ignore();
         if (choice == 0)

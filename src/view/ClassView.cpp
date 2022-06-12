@@ -101,7 +101,7 @@ void ClassView::CreateClass()
         cout << "Nhap ten lop: ";
         getline(cin, name);
         CLASS_DAO->CreateOne(Class(level, name, year, Teacher(teacher_id, "x", "x", Date(1,JANUARY,1), "x", "x", Subject("x",1))));
-        cout << "Ban co muon tao them mon hoc khong(nhap 0 de quay ve menu truoc): ";
+        cout << "Ban co muon tao them lop hoc khong(nhap 0 de quay ve menu truoc): ";
         cin >> choice;
         cin.ignore();
         if (choice == 0)
@@ -150,6 +150,8 @@ void ClassView::UpdateClass()
         cin.ignore();
         cout << "Nhap ten lop: ";
         getline(cin, name);
-        CLASS_DAO->UpdateById(id, Class(level, name, year, Teacher(teacher_id, "x", "x", Date(1,JANUARY,1), "x", "x", Subject("x",1))));
+        Teacher teacher;
+        teacher.Setid(teacher_id);
+        CLASS_DAO->UpdateById(id, Class(level, name, year, teacher));
     }
 }
