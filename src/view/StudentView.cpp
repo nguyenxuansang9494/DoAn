@@ -57,11 +57,11 @@ void StudentView::ShowAllStudent()
          << "Sodt"
          << "\t"
          << "Id lop hoc" << endl;
-    ArrayList<Student> teachers = STUDENT_DAO->GetAll();
-    for (int i = 0; i < teachers.length(); i++)
+    ArrayList<Student> students = STUDENT_DAO->GetAll();
+    for (int i = 0; i < students.length(); i++)
     {
-        Student teacher = teachers.get(i);
-        cout << teacher.Getid() << '\t' << teacher.Getlast_name() << '\t' << teacher.Getfirst_name() << '\t' << teacher.Getdob().tostring() << '\t' << teacher.Getemail() << '\t' << teacher.Getphone_number() << '\t' << teacher.Getstudentclass().Getid() << endl;
+        Student student = students.get(i);
+        cout << student.Getid() << '\t' << student.Getlast_name() << '\t' << student.Getfirst_name() << '\t' << student.Getdob().tostring() << '\t' << student.Getemail() << '\t' << student.Getphone_number() << '\t' << student.Getstudentclass().Getid() << endl;
     }
 }
 
@@ -76,16 +76,17 @@ void StudentView::ShowAStudent()
         cin.ignore();
         if (id == 0)
             break;
-        Student *teacher = STUDENT_DAO->GetById(id);
-        if (teacher == nullptr)
+        Student *student = STUDENT_DAO->GetById(id);
+        if (student == nullptr)
             continue;
-        cout << "Id: " << teacher->Getid() << endl;
-        cout << "Ho: " << teacher->Getlast_name() << endl;
-        cout << "Ten: " << teacher->Getfirst_name() << endl;
-        cout << "Ngay sinh: " << teacher->Getdob().tostring() << endl;
-        cout << "Email: " << teacher->Getemail() << endl;
-        cout << "Sodt: " << teacher->Getphone_number() << endl;
-        cout << "Id lop hoc: " << teacher->Getstudentclass().Getid() << endl;
+        delete student;
+        cout << "Id: " << student->Getid() << endl;
+        cout << "Ho: " << student->Getlast_name() << endl;
+        cout << "Ten: " << student->Getfirst_name() << endl;
+        cout << "Ngay sinh: " << student->Getdob().tostring() << endl;
+        cout << "Email: " << student->Getemail() << endl;
+        cout << "Sodt: " << student->Getphone_number() << endl;
+        cout << "Id lop hoc: " << student->Getstudentclass().Getid() << endl;
     }
 }
 
@@ -154,9 +155,10 @@ void StudentView::UpdateStudent()
         cin.ignore();
         if (id == 0)
             break;
-        Student *teacher = STUDENT_DAO->GetById(id);
-        if (teacher == nullptr)
+        Student *student = STUDENT_DAO->GetById(id);
+        if (student == nullptr)
             continue;
+        delete student;
         cout << "Nhap ho : ";
         getline(cin, last_name);
         cout << "Nhap ten : ";

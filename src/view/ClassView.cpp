@@ -74,6 +74,7 @@ void ClassView::ShowAClass()
         Class *clazz = CLASS_DAO->GetById(id);
         if (clazz == nullptr)
             continue;
+        delete clazz;
         cout << "Id: " << clazz->Getid() << endl;
         cout << "Lop: " << clazz->Getlevel() << endl;
         cout << "Ten lop: " << clazz->Getname() << endl;
@@ -141,6 +142,7 @@ void ClassView::UpdateClass()
         Class *clazz = CLASS_DAO->GetById(id);
         if (clazz == nullptr)
             continue;
+        delete clazz;
         cout << "Nhap lop : ";
         cin >> level;
         cout << "Nhap nam : ";

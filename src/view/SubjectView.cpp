@@ -70,6 +70,7 @@ void SubjectView::ShowASubject()
         Subject *subject = SUBJECT_DAO->GetById(id);
         if (subject == nullptr)
             continue;
+        delete subject;
         cout << "Id: " << subject->Getid() << endl;
         cout << "Ten mon: " << subject->Getname() << endl;
         cout << "Lop: " << subject->Getgrade() << endl;
@@ -126,6 +127,7 @@ void SubjectView::UpdateSubject()
         Subject *subject = SUBJECT_DAO->GetById(id);
         if (subject == nullptr)
             continue;
+        delete subject;
         cout << "Nhap ten mon hoc: ";
         getline(cin, name);
         cout << "Nhap lop mon hoc: ";
