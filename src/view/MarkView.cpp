@@ -64,7 +64,7 @@ void MarkView::ShowAllMark()
     ArrayList<Mark> marks = MARK_DAO->GetAll();
     for (int i = 0; i < marks.length(); i++)
     {
-        cout << marks.get(i).Getid() << "\t" << marks.get(i).Getstudent().Getid() << "\t" << marks.get(i).Getclazz().Getid() << "\t" << marks.get(i).Getsubject().Getid() << marks.get(i).Getvalue() << endl;
+        cout << marks.get(i).Getid() << "\t" << marks.get(i).Getstudent().Getid() << "\t" << marks.get(i).Getclazz().Getid() << "\t" << marks.get(i).Getsubject().Getid() << "\t" << marks.get(i).Getvalue() << endl;
     }
 }
 
@@ -91,7 +91,7 @@ void MarkView::ShowAllStudentMark()
         ArrayList<Mark> marks = MARK_DAO->GetAllByStudentId(id);
         for (int i = 0; i < marks.length(); i++)
         {
-            cout << marks.get(i).Getid() << "\t" << marks.get(i).Getstudent().Getid() << "\t" << marks.get(i).Getclazz().Getid() << "\t" << marks.get(i).Getsubject().Getid() << marks.get(i).Getvalue() << endl;
+            cout << marks.get(i).Getid() << "\t" << marks.get(i).Getstudent().Getid() << "\t" << marks.get(i).Getclazz().Getid() << "\t" << marks.get(i).Getsubject().Getid() << "\t" << marks.get(i).Getvalue() << endl;
         }
     }
 }
@@ -122,7 +122,7 @@ void MarkView::ShowAllStudentSubjectMark()
         ArrayList<Mark> marks = MARK_DAO->GetAllByStudentAndSubjectId(student_id, subject_id);
         for (int i = 0; i < marks.length(); i++)
         {
-            cout << marks.get(i).Getid() << "\t" << marks.get(i).Getstudent().Getid() << "\t" << marks.get(i).Getclazz().Getid() << "\t" << marks.get(i).Getsubject().Getid() << marks.get(i).Getvalue() << endl;
+            cout << marks.get(i).Getid() << "\t" << marks.get(i).Getstudent().Getid() << "\t" << marks.get(i).Getclazz().Getid() << "\t" << marks.get(i).Getsubject().Getid() << "\t" << marks.get(i).Getvalue() << endl;
         }
     }
 }
@@ -142,17 +142,17 @@ void MarkView::ShowAStudentSubjectClassMark()
         cout << "Nhap id lop hoc: ";
         cin >> class_id;
         cin.ignore();
-        if (student_id * subject_id * class_id== 0)
+        if (student_id * subject_id * class_id == 0)
             break;
         Mark *rs = MARK_DAO->GetByStudentAndSubjectIdAndClassId(student_id, subject_id, class_id);
         if (rs == nullptr)
             continue;
         delete rs;
-        cout << "Id: " << rs->Getid() << endl; 
-        cout << "Id hoc sinh: " << rs->Getstudent().Getid() << endl; 
-        cout << "Id mon hoc: " << rs->Getsubject().Getid() << endl; 
-        cout << "Id lop hoc: " << rs->Getclazz().Getid() << endl; 
-        cout << "Diem: " << rs->Getvalue() << endl; 
+        cout << "Id: " << rs->Getid() << endl;
+        cout << "Id hoc sinh: " << rs->Getstudent().Getid() << endl;
+        cout << "Id mon hoc: " << rs->Getsubject().Getid() << endl;
+        cout << "Id lop hoc: " << rs->Getclazz().Getid() << endl;
+        cout << "Diem: " << rs->Getvalue() << endl;
     }
 }
 
@@ -204,7 +204,7 @@ void MarkView::RemoveMark()
         cout << "Nhap id lop hoc: ";
         cin >> class_id;
         cin.ignore();
-        if (student_id * subject_id * class_id== 0)
+        if (student_id * subject_id * class_id == 0)
             break;
         MARK_DAO->RemoveByStudentAndSubjectIdAndClassId(student_id, subject_id, class_id);
     }
@@ -226,7 +226,7 @@ void MarkView::UpdateMark()
         cout << "Nhap id lop hoc: ";
         cin >> class_id;
         cin.ignore();
-        if (student_id * subject_id * class_id== 0)
+        if (student_id * subject_id * class_id == 0)
             break;
         Mark *rs = MARK_DAO->GetByStudentAndSubjectIdAndClassId(student_id, subject_id, class_id);
         if (rs == nullptr)
