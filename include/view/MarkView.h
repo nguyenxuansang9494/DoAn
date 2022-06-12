@@ -6,9 +6,10 @@ using namespace std;
 
 namespace MarkView {
     void MarkMenu();
+    void ShowAllMark();
     void ShowAllStudentMark();
     void ShowAllStudentSubjectMark();
-    void ShowAllStudentSubjectClassMark();
+    void ShowAStudentSubjectClassMark();
     void CreateMark();
     void UpdateMark();
     void RemoveMark();

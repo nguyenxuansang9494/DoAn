@@ -6,7 +6,7 @@ using namespace std;
 
 namespace SubjectView {
     void SubjectMenu();
-    void ShowAllSubJect();
+    void ShowAllSubject();
     void ShowASubject();
     void CreateSubject();
     void UpdateSubject();

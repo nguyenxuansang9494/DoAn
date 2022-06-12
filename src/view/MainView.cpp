@@ -1,23 +1,20 @@
 #include <MainView.h>
 
-void presentMenu()
-{
-    cout << "Quan ly truong hoc: " << endl;
-    cout << "1. Mon hoc." << endl;
-    cout << "2. Giao vien." << endl;
-    cout << "3. Lop hoc." << endl;
-    cout << "4. Hoc sinh." << endl;
-    cout << "5. Diem." << endl;
-    cout << "0. Thoat." << endl;
-}
-
 void MainView::MainMenu()
 {
     int choice;
     while (true)
     {
-        presentMenu();
+        cout << "Quan ly truong hoc: " << endl;
+        cout << "1. Mon hoc." << endl;
+        cout << "2. Giao vien." << endl;
+        cout << "3. Lop hoc." << endl;
+        cout << "4. Hoc sinh." << endl;
+        cout << "5. Diem." << endl;
+        cout << "0. Thoat." << endl;
+        cout << "Nhap lua chon: ";
         cin >> choice;
+        cin.ignore();
         if (choice == 0)
             break;
         switch (choice)
