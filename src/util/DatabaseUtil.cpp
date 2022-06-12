@@ -9,7 +9,7 @@ sqlite3 *std::InitDBConn()
         return globaldb;
     string dbfile = getenv("HOME");
     dbfile.append("/.skulman/db/skulman.db");
-    int rc = sqlite3_open(dbfile.c_str(), &globaldb);
+    int rc = sqlite3_open_v2(dbfile.c_str(), &globaldb, SQLITE_OPEN_READWRITE, nullptr);
     if (rc != 0)
     {
         LOGGER->error("Database connection failed.");

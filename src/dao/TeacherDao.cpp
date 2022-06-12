@@ -21,6 +21,7 @@ TeacherDao::TeacherDao()
 
 TeacherDao::~TeacherDao()
 {
+    sqlite3_close(this->db);
 }
 
 TeacherDao *TeacherDao::Getinstance()

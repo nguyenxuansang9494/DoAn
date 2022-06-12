@@ -45,14 +45,14 @@ void SubjectView::SubjectMenu()
 void SubjectView::ShowAllSubject()
 {
     cout << "Id"
-         << "\t\t"
+         << "\t"
          << "Ten Mon"
-         << "\t\t"
+         << "\t"
          << "Lop" << endl;
     ArrayList<Subject> subjects = SUBJECT_DAO->GetAll();
     for (int i = 0; i < subjects.length(); i++)
     {
-        cout << subjects.get(i).Getid() << "\t\t" << subjects.get(i).Getname() << "\t\t" << subjects.get(i).Getgrade() << endl;
+        cout << subjects.get(i).Getid() << "\t" << subjects.get(i).Getname() << "\t" << subjects.get(i).Getgrade() << endl;
     }
 }
 
@@ -68,6 +68,8 @@ void SubjectView::ShowASubject()
         if (id == 0)
             break;
         Subject *subject = SUBJECT_DAO->GetById(id);
+        if (subject == nullptr)
+            continue;
         cout << "Id: " << subject->Getid() << endl;
         cout << "Ten mon: " << subject->Getname() << endl;
         cout << "Lop: " << subject->Getgrade() << endl;
@@ -121,6 +123,9 @@ void SubjectView::UpdateSubject()
         cin.ignore();
         if (id == 0)
             break;
+        Subject *subject = SUBJECT_DAO->GetById(id);
+        if (subject == nullptr)
+            continue;
         cout << "Nhap ten mon hoc: ";
         getline(cin, name);
         cout << "Nhap lop mon hoc: ";

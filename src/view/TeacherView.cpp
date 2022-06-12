@@ -77,6 +77,8 @@ void TeacherView::ShowATeacher()
         if (id == 0)
             break;
         Teacher *teacher = TEACHER_DAO->GetById(id);
+        if (teacher == nullptr)
+            continue;
         cout << "Id: " << teacher->Getid() << endl;
         cout << "Ho: " << teacher->Getlast_name() << endl;
         cout << "Ten: " << teacher->Getfirst_name() << endl;
@@ -150,6 +152,9 @@ void TeacherView::UpdateTeacher()
         cin.ignore();
         if (id == 0)
             break;
+        Teacher *teacher = TEACHER_DAO->GetById(id);
+        if (teacher == nullptr)
+            continue;
         cout << "Nhap ho : ";
         getline(cin, last_name);
         cout << "Nhap ten : ";

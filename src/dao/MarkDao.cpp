@@ -24,6 +24,7 @@ MarkDao::MarkDao()
 
 MarkDao::~MarkDao()
 {
+    sqlite3_close(this->db);
 }
 
 MarkDao *MarkDao::Getinstance()

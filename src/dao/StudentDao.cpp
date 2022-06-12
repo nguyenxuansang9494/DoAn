@@ -22,6 +22,7 @@ StudentDao::StudentDao()
 
 StudentDao::~StudentDao()
 {
+    sqlite3_close(this->db);
 }
 
 StudentDao *StudentDao::Getinstance()
